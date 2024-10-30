@@ -90,6 +90,11 @@ class MultinomialNaiveBayes:
                 class_word_counts.sum() + self.alpha * X.shape[1]  # Additive smoothing
             )
 
+        """ for i in range(len(self.word_likelihoods)): # If you want to get 0.583 accuracy, you can use this code block
+            for j in range(len(self.word_likelihoods[i])):
+                if self.word_likelihoods[i][j] == 0:
+                    self.word_likelihoods[i][j] = 1e-12 """
+
         # Compute the class log probabilities
         # First, calculate the log probabilities for each class
         self.log_class_priors = np.log(self.class_priors)
